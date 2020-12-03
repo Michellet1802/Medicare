@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Medicare</string>
+    <string name="passwordforgotten"><u>Olvidaste tu contraseña ?</u></string>
+
+    <string-array name="doctorEspecialidad">
+        <item>Cirugia Plastica</item>
+        <item>Ortopedista</item>
+        <item>Cardiologo</item>
+        <item>Radiologo</item>
+        <item>Dermatologo</item>
+        <item>Pediatra</item>
+        <item>Medico General</item>
+    </string-array>
+    <string name="title_activity_search_doctor_speciality">BuscarDoctorEspecialidadActivity</string>
+    <string name="tab_text_1">Doctores</string>
+    <string name="tab_text_2">Specialidad</string>
+    <string name="tab_text_3">En espera</string>
+    <string name="tab_text_4">Aceptado</string>
+    <string name="tab_text_5">Declinado</string>
+    <string name="tab_text_6">Hospitalizacion</string>
+    <string name="tab_text_7">Consultas</string>
+    <string name="title_activity_appointments">CitasActivity</string>
+    <string name="title_activity_medical_folder">ExpedienteActivity</string>
+    <string name="title_activity_doctor_localisation">Map</string>
+    <string name="title_activity_doctor_appointments">DoctorCitas</string>
+    <string name="title_activity_my_patient_medical_folder">MiPacienteExpedienteActivity</string>
+</resources>

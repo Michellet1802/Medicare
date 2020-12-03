@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:drawableLeft="@drawable/ic_calendar"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:text="11/12/2020"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/nombreHospital"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:drawableLeft="@drawable/ic_hospital"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:text="Hospital IMSS Clinica de Especialidades 71"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/enfermedad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:drawableLeft="@drawable/healthcareplus"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:text="Hemorragia"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/precioHosp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:drawableLeft="@drawable/ic_money"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:text="300 mxn"
+        android:textSize="16sp" />
+</LinearLayout>

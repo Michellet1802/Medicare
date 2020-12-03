@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "960078614009",
+    "firebase_url": "https://teclaguna-f446d.firebaseio.com",
+    "project_id": "teclaguna-f446d",
+    "storage_bucket": "teclaguna-f446d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960078614009:android:bbe5e5b4fb6dd69c254128",
+        "android_client_info": {
+          "package_name": "com.app.womba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960078614009-5ucq96m2kf3fmc33diuhfh1khendv9lr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP-ifZD4XZVNq2tWmP5xuzPnaQre-coRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "960078614009-5ucq96m2kf3fmc33diuhfh1khendv9lr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960078614009:android:688e41a6c21fed45254128",
+        "android_client_info": {
+          "package_name": "com.example.healtcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960078614009-5ucq96m2kf3fmc33diuhfh1khendv9lr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP-ifZD4XZVNq2tWmP5xuzPnaQre-coRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "960078614009-5ucq96m2kf3fmc33diuhfh1khendv9lr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960078614009:android:a0e2185c4f9ee80c254128",
+        "android_client_info": {
+          "package_name": "com.example.healthcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960078614009-5ucq96m2kf3fmc33diuhfh1khendv9lr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP-ifZD4XZVNq2tWmP5xuzPnaQre-coRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "960078614009-5ucq96m2kf3fmc33diuhfh1khendv9lr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960078614009:android:9c3a9c9370d1c53a254128",
+        "android_client_info": {
+          "package_name": "com.instant.doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960078614009-5ucq96m2kf3fmc33diuhfh1khendv9lr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP-ifZD4XZVNq2tWmP5xuzPnaQre-coRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "960078614009-5ucq96m2kf3fmc33diuhfh1khendv9lr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
