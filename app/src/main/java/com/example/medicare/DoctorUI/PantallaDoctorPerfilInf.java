@@ -100,7 +100,7 @@ public class PantallaDoctorPerfilInf extends AppCompatActivity {
         intent.putExtra("email", emailRecuperado);
         intent.putExtra("celular", celularRecuperado);
         intent.putExtra("direccion", direccionRecuperado);
-        intent.putExtra("city", ciudadRecuperado);
+        intent.putExtra("ciudad", ciudadRecuperado);
         intent.putExtra("code", codigoRecuperado);
         intent.putExtra("imageUri", Uri);
 

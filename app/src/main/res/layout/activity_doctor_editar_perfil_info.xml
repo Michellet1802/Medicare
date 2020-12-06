@@ -161,13 +161,11 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#33AEB6"
                 android:fontFamily="@font/montserrat"
-                android:inputType="date"
                 android:text="Paseo de los granados 337"
                 android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ciudadDoc"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
