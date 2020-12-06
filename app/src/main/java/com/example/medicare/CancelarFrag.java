@@ -53,7 +53,7 @@ public class CancelarFrag extends Fragment {
                 for(DataSnapshot data : dataSnapshot.getChildren())
                 {
                     Cita cita = data.getValue(Cita.class);
-                    if(cita.getEmailPaciente().equals(emailPatient) && cita.getestado().equals("Declinado")) {
+                    if(cita.getEmailPaciente().equals(emailPatient) && cita.getEstado().equals("Declinado")) {
                         myReasons.add(data.child("razon").getValue(String.class));
                         myCitas.add(cita);
                         if (getActivity()!=null){

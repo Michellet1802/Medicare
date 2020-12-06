@@ -1,5 +1,6 @@
 package com.example.medicare;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
@@ -61,6 +62,7 @@ public class AsignarCita extends BaseAdapter {
         return position;
     }
 
+    @SuppressLint("ViewHolder")
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

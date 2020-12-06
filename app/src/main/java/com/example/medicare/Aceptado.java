@@ -44,7 +44,7 @@ public class Aceptado extends Fragment {
                 for(DataSnapshot data : dataSnapshot.getChildren())
                 {
                     Cita cita = data.getValue(Cita.class);
-                    if(cita.getEmailPaciente().equals(emailPaciente) && cita.getestado().equals("Aceptado")) {
+                    if(cita.getEmailPaciente().equals(emailPaciente) && cita.getEstado().equals("Aceptado")) {
                         miCitas.add(cita);
                         if (getActivity()!=null){
                             asignar = new AsignarCita(getActivity(), miCitas);

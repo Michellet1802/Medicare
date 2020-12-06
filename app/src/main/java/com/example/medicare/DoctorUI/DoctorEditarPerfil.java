@@ -38,7 +38,7 @@ public class DoctorEditarPerfil extends AppCompatActivity {
     CircleImageView circuloImageView;
     private Uri mImageUri;
     EditText nombreC, especialidad, email, celular, direccion, ciudad;
-    String nombreCRecibido, especialidadRecibida, emailRecibido, celularRecibido, direccionRecibido, direccionRecibida, codigoRecibido;
+    String nombreCRecibido, especialidadRecibida, emailRecibido, celularRecibido, direccionRecibido, ciudadRecibida, codigoRecibido;
     String receivedImageUri;
     StorageReference mStorageReference;
     FirebaseDatabase database;
@@ -46,41 +46,48 @@ public class DoctorEditarPerfil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_editar_perfil_info);
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_doctor_editar_perfil_info);
 
-        nombreC = findViewById(R.id.nombreCompleto);
-        especialidad = findViewById(R.id.especialidad);
-        email = findViewById(R.id.email);
-        celular = findViewById(R.id.celular);
-        direccion = findViewById(R.id.direccion);
-        ciudad = findViewById(R.id.ciudadDoc);
-        circuloImageView = findViewById(R.id.imagen_perfil);
+            nombreC = findViewById(R.id.nombreCompleto);
+            especialidad = findViewById(R.id.especialidad);
+            email = findViewById(R.id.email);
+            celular = findViewById(R.id.celular);
+            direccion = findViewById(R.id.direccion);
+            ciudad = findViewById(R.id.ciudadDoc);
+            circuloImageView = findViewById(R.id.imagen_perfil);
 
-        mStorageReference = FirebaseStorage.getInstance().getReference("imagen_perfil");
+            mStorageReference = FirebaseStorage.getInstance().getReference("imagen_perfil");
 
-        Intent intent = this.getIntent();   //get the intent to recieve the x and y coords, that you passed before
+            Intent intent = this.getIntent();   //get the intent to recieve the x and y coords, that you passed before
 
-        nombreCRecibido = intent.getStringExtra("nombreC");
-        especialidadRecibida = intent.getStringExtra("especialidad");
-        emailRecibido = intent.getStringExtra("email");
-        celularRecibido = intent.getStringExtra("celular");
-        direccionRecibido = intent.getStringExtra("direccion");
-        direccionRecibida = intent.getStringExtra("ciudad");
-        codigoRecibido = intent.getStringExtra("code");
-        receivedImageUri = intent.getStringExtra("imageUri");
-        Uri uri = Uri.parse(receivedImageUri);
+            nombreCRecibido = intent.getStringExtra("nombreC");
+            especialidadRecibida = intent.getStringExtra("especialidad");
+            emailRecibido = intent.getStringExtra("email");
+            celularRecibido = intent.getStringExtra("celular");
+            direccionRecibido = intent.getStringExtra("direccion");
+            ciudadRecibida = intent.getStringExtra("ciudad");
+            codigoRecibido = intent.getStringExtra("code");
+            receivedImageUri = intent.getStringExtra("imageUri");
+            Uri uri = Uri.parse(receivedImageUri != null ? receivedImageUri : "");
 
-        nombreC.setText(nombreCRecibido);
-        especialidad.setText(especialidadRecibida);
-        email.setText(emailRecibido);
-        celular.setText(celularRecibido);
-        direccion.setText(direccionRecibido);
-        ciudad.setText(direccionRecibida);
-        Picasso.get().load(uri).into(circuloImageView);
+            nombreC.setText(nombreCRecibido);
+            especialidad.setText(especialidadRecibida);
+            email.setText(emailRecibido);
+            celular.setText(celularRecibido);
+            direccion.setText(direccionRecibido);
+            ciudad.setText(ciudadRecibida);
+            if(uri.toString() != ""){
+                Picasso.get().load(uri).into(circuloImageView);
+            }
 
-        FrameLayout rootLayout = findViewById(R.id.root); //there you have to get the root layout of your second activity
-        mAnimacionReveal = new AnimacionReveal(rootLayout, intent, this);
+            FrameLayout rootLayout = findViewById(R.id.root); //there you have to get the root layout of your second activity
+            mAnimacionReveal = new AnimacionReveal(rootLayout, intent, this);
+        }
+        catch(Exception ex){
+            throw ex;
+        }
     }
     public void onBackPressed() {
         mAnimacionReveal.unRevealActivity();
@@ -126,7 +133,7 @@ public class DoctorEditarPerfil extends AppCompatActivity {
 
     }
 
-    public void update(View view) {
+    public void actualizar(View view) {
         database = FirebaseDatabase.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         final String userUid = user.getUid();

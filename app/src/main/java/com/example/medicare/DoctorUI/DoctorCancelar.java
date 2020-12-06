@@ -52,7 +52,7 @@ public class DoctorCancelar extends Fragment {
                 misCitasId.clear();
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Cita cita = data.getValue(Cita.class);
-                    if ( cita.getestado().equals("Declinada")) {
+                    if ( cita.getEstado().equals("Declinada")) {
                         misCitasId.add(data.getKey());
                         miRazones.add(data.child("razon").getValue(String.class));
                         miCitas.add(cita);

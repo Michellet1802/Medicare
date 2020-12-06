@@ -52,7 +52,7 @@ public class Cita {
         this.emailPaciente = emailPaciente;
     }
 
-    public String getestado() {
+    public String getEstado() {
         return estado;
     }
 

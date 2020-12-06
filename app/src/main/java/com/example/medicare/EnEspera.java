@@ -45,7 +45,7 @@ public class EnEspera extends Fragment {
                 for(DataSnapshot data : dataSnapshot.getChildren())
                 {
                     Cita cita = data.getValue(Cita.class);
-                    if( cita.getEmailPaciente().equals(emailPaciente) &&  cita.getestado().equals("En espera")) {
+                    if( cita.getEmailPaciente().equals(emailPaciente) &&  cita.getEstado().equals("En espera")) {
                         misCitas.add(cita);
                         if (getActivity()!=null){
                             asignar = new AsignarCita(getActivity(), misCitas);

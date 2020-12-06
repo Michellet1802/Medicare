@@ -46,7 +46,7 @@ public class DoctorAceptar extends Fragment {
                 for(DataSnapshot data : dataSnapshot.getChildren())
                 {
                     Cita cita = data.getValue(Cita.class);
-                    if( cita.getestado().equals("Aceptado")) {
+                    if( cita.getEstado().equals("Aceptado")) {
                         miCitas.add(cita);
                         if (getActivity()!=null){
                             adaptador = new DoctorCitaAdaptador(getActivity(), miCitas);

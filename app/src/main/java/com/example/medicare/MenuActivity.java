@@ -75,7 +75,7 @@ public class MenuActivity extends AppCompatActivity {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Cita cita = data.getValue(Cita.class);
                     if (  cita.getEmailPaciente().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()) &&
-                            cita.getestado().equals("Aceptado") &&
+                            cita.getEstado().equals("Aceptado") &&
                             cita.getfecha().equals(fechaHoy)
                     )
                         numeroCitas++;

@@ -47,7 +47,7 @@ public class DoctorEnEsperaFrag extends Fragment {
                 for(DataSnapshot data : dataSnapshot.getChildren())
                 {
                     Cita cita = data.getValue(Cita.class);
-                    if( cita.getestado().equals("En espera")) {
+                    if( cita.getEstado().equals("En espera")) {
                         misCitas.add(cita);
                         if (getActivity()!=null){
                             asignar = new DoctorEnEspera(getActivity(), misCitas);

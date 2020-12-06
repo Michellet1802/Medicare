@@ -104,7 +104,7 @@ public class DoctorEnEspera extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Citas").child(citaId);
-                databaseReference.child("Estado").setValue("Aceptado");
+                databaseReference.child("estado").setValue("Aceptado");
                 notifyDataSetChanged();
             }
         });
