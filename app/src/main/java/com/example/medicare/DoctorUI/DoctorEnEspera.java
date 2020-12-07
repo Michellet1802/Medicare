@@ -72,7 +72,6 @@ public class DoctorEnEspera extends BaseAdapter {
 
         final CircleImageView patientPicture = convertView.findViewById(R.id.imagen_perfil);
 
-
         final TextView patientFullName = convertView.findViewById(R.id.nombreCompleto);
         final TextView day = convertView.findViewById(R.id.dia);
         final TextView time = convertView.findViewById(R.id.hora);

@@ -204,7 +204,7 @@ public class DoctorMenuActivity extends AppCompatActivity {
         sp.edit().putBoolean("Doctor registrado",false).apply();
         FirebaseAuth.getInstance().signOut();
         finish();
-        startActivity(new Intent(DoctorMenuActivity.this, MainActivity.class));
+        //startActivity(new Intent(DoctorMenuActivity.this, MainActivity.class));
 
     }
 }

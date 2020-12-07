@@ -184,7 +184,7 @@ public class MenuActivity extends AppCompatActivity {
         sp.edit().putBoolean("Paciente registrado", false).apply();
         FirebaseAuth.getInstance().signOut();
         finish();
-        startActivity(new Intent(com.example.medicare.MenuActivity.this, MainActivity.class));
+        //startActivity(new Intent(com.example.medicare.MenuActivity.this, MainActivity.class));
 
     }
 
