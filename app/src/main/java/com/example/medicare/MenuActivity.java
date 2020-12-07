@@ -181,7 +181,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void cerrarSesion(View view) {
-        sp.edit().putBoolean("Sesion cerrada", false).apply();
+        sp.edit().putBoolean("Paciente registrado", false).apply();
         FirebaseAuth.getInstance().signOut();
         finish();
         startActivity(new Intent(com.example.medicare.MenuActivity.this, MainActivity.class));
