@@ -44,6 +44,7 @@ public class DoctorCancelar extends Fragment {
         misCitasId = new ArrayList<>();
         user = FirebaseAuth.getInstance().getCurrentUser();
         emailDoctor = user.getEmail();
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Citas");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -53,11 +54,12 @@ public class DoctorCancelar extends Fragment {
                 misCitasId.clear();
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Cita cita = data.getValue(Cita.class);
-                    Log.w("ETIQUETA",dataSnapshot.toString());
+                    //Log.w("ETIQUETA",dataSnapshot.toString());
 
-                    Log.e("ESTADO ",data.getValue(Cita.class).toString());
+                   // Log.e("ESTADO ",data.getValue(Cita.class).toString());
                     try {
-                        if ( cita.getEstado().equals("Declinada")) {
+                        //falta que elimine la cita del en espera
+                        if ( cita.getEstado().equals("Declinado")) {
                             misCitasId.add(data.getKey());
                             miRazones.add(data.child("razon").getValue(String.class));
                             miCitas.add(cita);

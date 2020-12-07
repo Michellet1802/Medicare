@@ -48,9 +48,9 @@ public class DoctorEnEsperaFrag extends Fragment {
                 for(DataSnapshot data : dataSnapshot.getChildren())
                 {
                     Cita cita = data.getValue(Cita.class);
-                    Log.w("ETIQUETA",dataSnapshot.toString());
+                 //   Log.w("ETIQUETA",dataSnapshot.toString());
 
-                    Log.e("ESTADO ",data.getValue(Cita.class).toString());
+                 //   Log.e("ESTADO ",data.getValue(Cita.class).toString());
                     try {
                         if( cita.getEstado().equals("En espera")) {
                             misCitas.add(cita);

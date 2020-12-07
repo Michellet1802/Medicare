@@ -54,7 +54,7 @@ public class DialogoCancelar extends AppCompatDialogFragment {
                     Toast.makeText(getActivity(), "El campo esta vacio", Toast.LENGTH_SHORT).show();
                 } else {
                     String razonOfDecline = razon.getText().toString();
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("citas").child(citaId);
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Citas").child(citaId);
                     databaseReference.child("razon").setValue(razonOfDecline).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

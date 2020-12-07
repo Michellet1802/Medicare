@@ -112,7 +112,7 @@ public class DoctorEnEspera extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 RazonCancelar razonCancelar = new RazonCancelar(citaId, DoctorEnEspera.this);
-                razonCancelar.show(((FragmentActivity)mContext).getSupportFragmentManager(), "razon de cancelacion");
+                razonCancelar.show(((FragmentActivity)mContext).getSupportFragmentManager(), "Razon de cancelacion");
             }
         });
         emailPaciente = cita.getEmailDoctor();

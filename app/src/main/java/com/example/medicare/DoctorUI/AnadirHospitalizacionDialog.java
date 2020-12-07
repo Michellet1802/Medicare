@@ -49,10 +49,10 @@ public class AnadirHospitalizacionDialog extends AppCompatDialogFragment {
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(nombreHospital.getText()) || TextUtils.isEmpty(enfermedad.getText()) || TextUtils.isEmpty(precio.getText()) || TextUtils.isEmpty(fecha.getText())) {
-                    Toast.makeText(getActivity(), "A field is empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Todos los campos deben estar llenos", Toast.LENGTH_SHORT).show();
                 } else {
                     Hospitalizacion hospitalizacion = new Hospitalizacion(nombreHospital.getText().toString(), patientEmail, fecha.getText().toString(),
-                     enfermedad.getText().toString(), precio.getText().toString()+" DH");
+                     enfermedad.getText().toString(), precio.getText().toString()+" MXN");
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Hospitalizacion");
                     ref.push().setValue(hospitalizacion).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

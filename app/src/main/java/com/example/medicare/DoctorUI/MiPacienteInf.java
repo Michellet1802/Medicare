@@ -78,7 +78,7 @@ public class MiPacienteInf extends AppCompatActivity {
         });
     }
 
-    public void phoneCall(View view) {
+    public void llamada(View view) {
         ImageView phoneCallImage = findViewById(R.id.llamada);
         final Animation animation = AnimationUtils.loadAnimation(this, R.anim.bounce);
         AnimacionBounceInterpolator interpolator = new AnimacionBounceInterpolator(0.2, 20);

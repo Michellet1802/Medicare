@@ -44,7 +44,7 @@ public class RazonCancelar extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.razon_layout_dialogo, null);
         razon = view.findViewById(R.id.razon);
-        submitButton = view.findViewById(R.id.submit);
+        submitButton = view.findViewById(R.id.btnAceptar);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,7 +53,7 @@ public class RazonCancelar extends AppCompatDialogFragment {
                 } else {
                     String razonOfDecline = razon.getText().toString();
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Citas").child(citaId);
-                    databaseReference.child("Estado").setValue("Declinada");
+                    databaseReference.child("estado").setValue("Declinado");
                     databaseReference.child("razon").setValue(razonOfDecline).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -66,6 +66,8 @@ public class RazonCancelar extends AppCompatDialogFragment {
                                 Button btn = alertDialog.findViewById(R.id.confirm_button);
                                 btn.setBackgroundColor(Color.parseColor("#33AEB6"));
                                 alertDialog.show();
+
+
                             }
                         }
                     });
