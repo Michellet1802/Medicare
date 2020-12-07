@@ -46,12 +46,17 @@ public class DoctorAceptar extends Fragment {
                 for(DataSnapshot data : dataSnapshot.getChildren())
                 {
                     Cita cita = data.getValue(Cita.class);
-                    if( cita.getEstado().equals("Aceptado")) {
-                        miCitas.add(cita);
-                        if (getActivity()!=null){
-                            adaptador = new DoctorCitaAdaptador(getActivity(), miCitas);
-                            citasAceptadas.setAdapter(adaptador);
+                    try {
+                        if( cita.getEstado().equals("Aceptado")) {
+                            miCitas.add(cita);
+                            if (getActivity()!=null){
+                                adaptador = new DoctorCitaAdaptador(getActivity(), miCitas);
+                                citasAceptadas.setAdapter(adaptador);
+                            }
                         }
+
+                    }catch(NullPointerException e){
+
                     }
 
                 }

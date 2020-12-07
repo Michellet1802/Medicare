@@ -13,10 +13,6 @@ import com.example.medicare.DoctorUI.DoctorCancelar;
 import com.example.medicare.DoctorUI.DoctorEnEsperaFrag;
 import com.example.medicare.R;
 
-/**
- * A [FragmentPagerAdapter] that returns a fragment corresponding to
- * one of the sections/tabs/pages.
- */
 public class LocalizadorSecciones extends FragmentPagerAdapter {
 
     @StringRes

@@ -1,6 +1,7 @@
 package com.example.medicare.DoctorUI;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,14 +53,22 @@ public class DoctorCancelar extends Fragment {
                 misCitasId.clear();
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Cita cita = data.getValue(Cita.class);
-                    if ( cita.getEstado().equals("Declinada")) {
-                        misCitasId.add(data.getKey());
-                        miRazones.add(data.child("razon").getValue(String.class));
-                        miCitas.add(cita);
-                        if (getActivity() != null) {
-                            asignar = new DoctorCitaAdaptador(getActivity(), miCitas);
-                            citasCanceladas.setAdapter(asignar);
+                    Log.w("ETIQUETA",dataSnapshot.toString());
+
+                    Log.e("ESTADO ",data.getValue(Cita.class).toString());
+                    try {
+                        if ( cita.getEstado().equals("Declinada")) {
+                            misCitasId.add(data.getKey());
+                            miRazones.add(data.child("razon").getValue(String.class));
+                            miCitas.add(cita);
+                            if (getActivity() != null) {
+                                asignar = new DoctorCitaAdaptador(getActivity(), miCitas);
+                                citasCanceladas.setAdapter(asignar);
+                            }
                         }
+
+                    }catch(NullPointerException e){
+
                     }
 
                 }

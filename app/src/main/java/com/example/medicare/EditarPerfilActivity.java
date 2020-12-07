@@ -124,7 +124,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         usuario = FirebaseAuth.getInstance().getCurrentUser();
         final String userUid = usuario.getUid();
         DatabaseReference dbRef = basedatos.getReference("Pacientes");
-        String[] fn = nombreC.getText().toString().split(" ");
+        String[] fn = nombreC.getText().toString().split("");
         final Paciente paciente = new Paciente(fn[0],fn[1],cumpleaños.getText().toString(),celular.getText().toString(),email.getText().toString()
                 ,nss.getText().toString(),estadoMar.getText().toString());
         dbRef.child(userUid).addValueEventListener(new ValueEventListener() {

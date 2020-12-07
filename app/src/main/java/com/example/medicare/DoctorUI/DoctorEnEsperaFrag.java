@@ -1,6 +1,7 @@
 package com.example.medicare.DoctorUI;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,12 +48,20 @@ public class DoctorEnEsperaFrag extends Fragment {
                 for(DataSnapshot data : dataSnapshot.getChildren())
                 {
                     Cita cita = data.getValue(Cita.class);
-                    if( cita.getEstado().equals("En espera")) {
-                        misCitas.add(cita);
-                        if (getActivity()!=null){
-                            asignar = new DoctorEnEspera(getActivity(), misCitas);
-                            citasEnEspera.setAdapter(asignar);
+                    Log.w("ETIQUETA",dataSnapshot.toString());
+
+                    Log.e("ESTADO ",data.getValue(Cita.class).toString());
+                    try {
+                        if( cita.getEstado().equals("En espera")) {
+                            misCitas.add(cita);
+                            if (getActivity()!=null){
+                                asignar = new DoctorEnEspera(getActivity(), misCitas);
+                                citasEnEspera.setAdapter(asignar);
+                            }
                         }
+
+                    }catch(NullPointerException e){
+
                     }
 
                 }

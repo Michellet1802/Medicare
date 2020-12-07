@@ -73,7 +73,7 @@ public class Cita {
                 "Fecha: " + getfecha() + " ,\n" +
                 "EmailDoc: " + getEmailDoctor() + " ,\n" +
                 "EmailPac: " + getEmailPaciente() + " ,\n" +
-                "Estado: " + getestado() + " ,\n"+
+                "Estado: " + getEstado() + " ,\n"+
                 "Hora: " + gethora() + " ,\n" +
                 "Clase: " + getClass() + " ,\n"
                 ;
