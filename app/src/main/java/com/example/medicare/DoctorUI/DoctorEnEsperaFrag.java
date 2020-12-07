@@ -49,6 +49,7 @@ public class DoctorEnEsperaFrag extends Fragment {
                 {
                     Cita cita = data.getValue(Cita.class);
                     Log.w("ETIQUETA",dataSnapshot.toString());
+
                     Log.e("ESTADO ",data.getValue(Cita.class).toString());
                     try {
                         if( cita.getestado().equals("En espera")) {

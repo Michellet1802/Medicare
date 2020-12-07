@@ -78,17 +78,17 @@ public class DoctorEditarPerfil extends AppCompatActivity {
             celular.setText(celularRecibido);
             direccion.setText(direccionRecibido);
             ciudad.setText(ciudadRecibida);
-            if(uri.toString() != ""){
+            if (uri.toString() != "") {
                 Picasso.get().load(uri).into(circuloImageView);
             }
 
             FrameLayout rootLayout = findViewById(R.id.root); //there you have to get the root layout of your second activity
             mAnimacionReveal = new AnimacionReveal(rootLayout, intent, this);
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             throw ex;
         }
     }
+
     public void onBackPressed() {
         mAnimacionReveal.unRevealActivity();
     }
@@ -138,14 +138,15 @@ public class DoctorEditarPerfil extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         final String userUid = user.getUid();
         DatabaseReference dbRef = database.getReference("Doctores");
-        final Doctor doctor = new Doctor(nombreC.getText().toString(),codigoRecibido,celular.getText().toString()
-                ,email.getText().toString(),ciudad.getText().toString(),direccion.getText().toString(), especialidadRecibida);
+        final Doctor doctor = new Doctor(nombreC.getText().toString(), codigoRecibido, celular.getText().toString()
+                , email.getText().toString(), ciudad.getText().toString(), direccion.getText().toString(), especialidadRecibida);
         dbRef.child(userUid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 dataSnapshot.getRef().setValue(doctor);
-                Intent intent = new Intent(DoctorEditarPerfil.this, PantallaDoctorPerfilInf.class);
-                startActivity(intent);
+                //Intent intent = new Intent(DoctorEditarPerfil.this, PantallaDoctorPerfilInf.class);
+                //startActivity(intent);
+                finish();
             }
 
             @Override

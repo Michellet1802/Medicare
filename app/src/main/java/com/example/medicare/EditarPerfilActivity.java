@@ -43,41 +43,48 @@ public class EditarPerfilActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar_perfil);
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_editar_perfil);
 
-        nombreC = findViewById(R.id.nombreCompleto);
-        nss = findViewById(R.id.nss);
-        email = findViewById(R.id.email);
-        celular = findViewById(R.id.celular);
-        cumpleaños = findViewById(R.id.cumpleaños);
-        estadoMar = findViewById(R.id.estado);
-        circleImageView = findViewById(R.id.imagen_perfil);
+            nombreC = findViewById(R.id.nombreCompleto);
+            nss = findViewById(R.id.nss);
+            email = findViewById(R.id.email);
+            celular = findViewById(R.id.celular);
+            cumpleaños = findViewById(R.id.cumpleaños);
+            estadoMar = findViewById(R.id.estado);
+            circleImageView = findViewById(R.id.imagen_perfil);
 
-        mStorageReference = FirebaseStorage.getInstance().getReference("imagen_perfil");
+            mStorageReference = FirebaseStorage.getInstance().getReference("imagen_perfil");
 
-        Intent intent = this.getIntent();   //get the intent to recieve the x and y coords, that you passed before
+            Intent intent = this.getIntent();   //get the intent to recieve the x and y coords, that you passed before
 
 
-        recibnombreC = intent.getStringExtra("nombreCompleto");
-        recibnss = intent.getStringExtra("nss");
-        recibEmail = intent.getStringExtra("email");
-        recibcelular = intent.getStringExtra("celular");
-        recibcumpleaños = intent.getStringExtra("cumpleaños");
-        recibestadoMar = intent.getStringExtra("estado");
-        recibImageUri = intent.getStringExtra("imageUri");
-        Uri uri = Uri.parse(recibImageUri);
+            recibnombreC = intent.getStringExtra("nombreCompleto");
+            recibnss = intent.getStringExtra("nss");
+            recibEmail = intent.getStringExtra("email");
+            recibcelular = intent.getStringExtra("celular");
+            recibcumpleaños = intent.getStringExtra("cumpleaños");
+            recibestadoMar = intent.getStringExtra("estado");
+            recibImageUri = intent.getStringExtra("imageUri");
+            Uri uri = Uri.parse(recibImageUri);
 
-        nombreC.setText(recibnombreC);
-        nss.setText(recibnss);
-        email.setText(recibEmail);
-        celular.setText(recibcelular);
-        cumpleaños.setText(recibcumpleaños);
-        estadoMar.setText(recibestadoMar);
-        Picasso.get().load(uri).into(circleImageView);
+            nombreC.setText(recibnombreC);
+            nss.setText(recibnss);
+            email.setText(recibEmail);
+            celular.setText(recibcelular);
+            cumpleaños.setText(recibcumpleaños);
+            estadoMar.setText(recibestadoMar);
 
-        FrameLayout rootLayout = findViewById(R.id.root); //there you have to get the root layout of your second activity
-        mAnimacionReveal = new AnimacionReveal(rootLayout, intent, this);
+            if (uri.toString() != "") {
+                Picasso.get().load(uri).into(circleImageView);
+            }
+            FrameLayout rootLayout = findViewById(R.id.root); //there you have to get the root layout of your second activity
+            mAnimacionReveal = new AnimacionReveal(rootLayout, intent, this);
+
+        } catch (Exception e) {
+
+        }
     }
 
     public void onBackPressed() {
@@ -125,12 +132,15 @@ public class EditarPerfilActivity extends AppCompatActivity {
         final String userUid = usuario.getUid();
         DatabaseReference dbRef = basedatos.getReference("Pacientes");
         String[] fn = nombreC.getText().toString().split(" ");
-        final Paciente paciente = new Paciente(fn[0],fn[1],cumpleaños.getText().toString(),celular.getText().toString(),email.getText().toString()
-                ,nss.getText().toString(),estadoMar.getText().toString());
+        final Paciente paciente = new Paciente(fn[0], fn[1], cumpleaños.getText().toString(), celular.getText().toString(), email.getText().toString()
+                , nss.getText().toString(), estadoMar.getText().toString());
         dbRef.child(userUid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 dataSnapshot.getRef().setValue(paciente);
+                //Intent intent = new Intent(EditarPerfilActivity.this, PerfilPacienteInfo.class);
+                //startActivity(intent);
+                finish();
             }
 
             @Override
@@ -138,7 +148,6 @@ public class EditarPerfilActivity extends AppCompatActivity {
 
             }
         });
-        Intent intent = new Intent(EditarPerfilActivity.this, PerfilPacienteInfo.class);
-        startActivity(intent);
+
     }
 }
