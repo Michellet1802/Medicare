@@ -117,7 +117,8 @@ public class PantallaDoctorPerfilInf extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(PantallaDoctorPerfilInf.this, DoctorMenuActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(PantallaDoctorPerfilInf.this, DoctorMenuActivity.class);
+        //startActivity(intent);
+        finish();
     }
 }

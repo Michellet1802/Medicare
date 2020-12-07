@@ -107,8 +107,9 @@ public class MiPacienteActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(MiPacienteActivity.this, DoctorMenuActivity.class);
+        //Intent intent = new Intent(MiPacienteActivity.this, DoctorMenuActivity.class);
         DoctorMenuActivity.setToken(1);
-        startActivity(intent);
+        //startActivity(intent);
+        finish();
     }
 }

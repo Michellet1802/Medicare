@@ -67,4 +67,15 @@ public class Cita {
     public void setEstadoDeclinado() {
         this.estado = estadoValues[2];
     }
+
+    public String toString(){
+        return "Los valores son: \n" +
+                "Fecha: " + getfecha() + " ,\n" +
+                "EmailDoc: " + getEmailDoctor() + " ,\n" +
+                "EmailPac: " + getEmailPaciente() + " ,\n" +
+                "Estado: " + getestado() + " ,\n"+
+                "Hora: " + gethora() + " ,\n" +
+                "Clase: " + getClass() + " ,\n"
+                ;
+    }
 }

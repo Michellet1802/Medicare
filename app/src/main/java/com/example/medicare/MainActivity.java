@@ -46,14 +46,20 @@ public class MainActivity extends AppCompatActivity {
         errorMensaje = findViewById(R.id.errorMessage);
         recordar = findViewById(R.id.rememberMe);
         sp = getSharedPreferences("Iniciar Sesion", MODE_PRIVATE);
+        String username = sp.getString("user", "");
+        String password = sp.getString("pass", "");
         if (sp.getBoolean("Paciente registrado", false)) {
-            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-            startActivity(intent);
+            recordar.setChecked(true);
+            login.setText(username);
+            contra.setText(password);
+            login(username, password);
         }
         if(sp.getBoolean("Doctor registrado", false))
         {
-            Intent intent = new Intent(MainActivity.this, DoctorMenuActivity.class);
-            startActivity(intent);
+            recordar.setChecked(true);
+            login.setText(username);
+            contra.setText(password);
+            login(username, password);
         }
 
     }
@@ -74,51 +80,58 @@ public class MainActivity extends AppCompatActivity {
         ) {
             Toast.makeText(MainActivity.this, "El inicio de sesión o la contraseña están vacíos", Toast.LENGTH_SHORT).show();
         } else {
-            final SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
-            pDialog.getProgressHelper().setBarColor(Color.parseColor("#33aeb6"));
-            pDialog.setTitleText("Cargando");
-            pDialog.setCancelable(false);
-            pDialog.show();
-            mAuth.signInWithEmailAndPassword(inicioSesion, tempContrasena).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        ref = FirebaseDatabase.getInstance().getReference("Doctores");
-                        ref.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                String email = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("email").getValue(String.class);
-                                if (email == null) {
-                                    pDialog.hide();
-                                    if (recordar.isChecked()) {
-                                        sp.edit().putBoolean("Paciente registrado", true).apply();
-                                    } else
-                                        sp.edit().putBoolean("Paciente registrado", false).apply();
-                                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                                    MainActivity.this.startActivity(intent);
-                                } else {
-                                    pDialog.hide();
-                                    if (recordar.isChecked()) {
-                                        sp.edit().putBoolean("Doctor registrado", true).apply();
-                                    } else
-                                        sp.edit().putBoolean("Doctor registrado", false).apply();
-                                    Intent intent = new Intent(MainActivity.this, DoctorMenuActivity.class);
-                                    MainActivity.this.startActivity(intent);
-                                }
-                            }
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-
-                    } else {
-                        errorMensaje.setVisibility(View.VISIBLE);
-                        pDialog.hide();
-                    }
-                }
-            });
+            login(inicioSesion, tempContrasena);
         }
+    }
+
+    public void login(String username, String password){
+        final SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#33aeb6"));
+        pDialog.setTitleText("Cargando");
+        pDialog.setCancelable(false);
+        pDialog.show();
+        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    ref = FirebaseDatabase.getInstance().getReference("Doctores");
+                    ref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            String email = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("email").getValue(String.class);
+                            if (email == null) {
+                                pDialog.hide();
+                                if (recordar.isChecked()) {
+                                    sp.edit().putBoolean("Paciente registrado", true).apply();
+                                    sp.edit().putString("user", username).apply();
+                                    sp.edit().putString("pass", password).apply();
+                                } else
+                                    sp.edit().putBoolean("Paciente registrado", false).apply();
+                                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                                MainActivity.this.startActivity(intent);
+                            } else {
+                                pDialog.hide();
+                                if (recordar.isChecked()) {
+                                    sp.edit().putBoolean("Doctor registrado", true).apply();
+                                    sp.edit().putString("user", username).apply();
+                                    sp.edit().putString("pass", password).apply();
+                                } else
+                                    sp.edit().putBoolean("Doctor registrado", false).apply();
+                                Intent intent = new Intent(MainActivity.this, DoctorMenuActivity.class);
+                                MainActivity.this.startActivity(intent);
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+                } else {
+                    errorMensaje.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
     public void cambiarContra(View view) {

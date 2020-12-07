@@ -201,10 +201,10 @@ public class DoctorMenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void cerrarSesion(View view) {
-        sp.edit().putBoolean("Doctor Cerro Sesión",false).apply();
+        sp.edit().putBoolean("Doctor registrado",false).apply();
         FirebaseAuth.getInstance().signOut();
         finish();
-        startActivity(new Intent(DoctorMenuActivity.this, MainActivity.class));
+        //startActivity(new Intent(DoctorMenuActivity.this, MainActivity.class));
 
     }
 }
